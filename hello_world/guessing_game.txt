@@ -1,0 +1,5 @@
+
+
+References gives us a way for multiple parts of our code to access one piece of data without needing to copy that data into memory multiple times.
+
+Cargo update will update dependencies between the version specified and the latest
