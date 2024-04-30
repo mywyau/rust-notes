@@ -1,1 +1,3 @@
-rust-notes
+# rust-notes
+
+Learning Rust
