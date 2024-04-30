@@ -1,0 +1,28 @@
+rustc --version
+rustc main.rs          // create executable program
+rustc ./main           // to run the program
+
+cargo is rusts build tool/system
+it will handle download and build dependencies, building your code etc.
+
+cargo --version
+
+cargo new hello_cargo       // creates a new directory called hello_cargo and make it a new project with a bunch of build files
+
+rust packages of code are called crates
+
+cargo build   //  will build your project but the main file as of current knowledge needs to be in /src
+
+./target/debug/rust-notes    // to run your executable
+
+cargo run  // is much simpler no need for cargo build
+
+cargo check // checks code is compilable but does not build the executable
+
+
+// we can build two versions of our app, one for dev and one for release
+// release will have optimizations so will have a much longer compile time
+cargo build --release
+
+
+
