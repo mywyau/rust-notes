@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
 
     // Booleans
@@ -65,4 +67,25 @@ fn main() {
     // println!("b: {b}"); unable to print out array
     println!("first element: {first}");
     println!("second element: {second}");
+
+    // Accessing array values
+
+    let c = [1, 2, 3, 4, 5];
+
+    println!("Please enter an array index.");
+
+    let mut index: String = String::new();
+
+    io::stdin()       // if we enter a index value greater than our array length the program will panic returning an index out of bounds runtime exception.
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+
+    let element = a[index];
+
+    println!("The value of the element at index {index} is {element}");
 }
