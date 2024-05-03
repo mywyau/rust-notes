@@ -3,9 +3,11 @@ fn main() {
     // cannot_modify_borrowed_stuff();   // does not compile will give you error about modifying a borrowed value.
 
     // can_modify_mutable_references();
-    mix_mutable_with_immutable();
-}
+    // mix_mutable_with_immutable_invalid();
+    mix_mutable_with_immutable_valid();
 
+    // let reference_to_nothing = dangling_reference();   // reference is dropped, but compiler catches this
+}
 
 // to avoid the whole tupling and return value function situation in the ownership package regarding variables is to use a 'reference'
 // to denote a 'reference' you use the & operator in front of a function parameter and variable reference.
@@ -76,7 +78,7 @@ fn scoped_references() {
 
 // rust also enforces a similar rule when mixing mutable and immutable references.
 
-fn mix_mutable_with_immutable() {
+fn mix_mutable_with_immutable_invalid() {
     let s = String::from("Hello");
     let r1 = &s;        // these are fine since immutable
     let r2 = &s;        // these are fine since immutable
@@ -86,3 +88,38 @@ fn mix_mutable_with_immutable() {
     // println!("{}, {}, and {}", r1, r2, r3);
     println!("{}, {}, and {}", r1, r2, r3);
 }
+
+fn mix_mutable_with_immutable_valid() {
+    let mut s = String::from("Hello");  // initally declared as mutable
+    let r1 = &s;        // these are fine since immutable
+    let r2 = &s;        // these are fine since immutable
+    println!("immutable r1: {}, r2: {}", r1, r2);
+
+    let r3 = &mut s;        // this is allowed since out of scope of the other references. and initial reference is declared mutable
+    println!("mutable r3:{}", r3);
+}
+
+
+// Dangling references
+
+// In languages with pointers, it’s easy to erroneously create a dangling pointer—a pointer that references a location in
+// memory that may have been given to someone else—by freeing some memory while preserving a pointer to that memory.
+// In Rust, by contrast, the compiler guarantees that references will never be dangling references: if you have a reference to some data,
+// the compiler will ensure that the data will not go out of scope before the reference to the data does.
+
+fn dangling_reference() -> &String {  // error will mention lifetime parameters.  // dangle returns a reference to a String
+    let s = String::from("hello"); // s is a new String
+    &s // we return a reference to the String, s
+} // Here, s goes out of scope, and is dropped. Its memory goes away.
+// Danger!
+
+fn no_dangling_reference() -> &String {
+    let s = String::from("hello");
+    s
+}
+
+
+
+
+
+
