@@ -7,6 +7,7 @@ fn main() {
     mix_mutable_with_immutable_valid();
 
     // let reference_to_nothing = dangling_reference();   // reference is dropped, but compiler catches this
+    let reference_to_nothing = no_dangling_reference();   // compiles since we do no have a dangling reference.
 }
 
 // to avoid the whole tupling and return value function situation in the ownership package regarding variables is to use a 'reference'
@@ -107,13 +108,13 @@ fn mix_mutable_with_immutable_valid() {
 // In Rust, by contrast, the compiler guarantees that references will never be dangling references: if you have a reference to some data,
 // the compiler will ensure that the data will not go out of scope before the reference to the data does.
 
-fn dangling_reference() -> &String {  // error will mention lifetime parameters.  // dangle returns a reference to a String
-    let s = String::from("hello"); // s is a new String
-    &s // we return a reference to the String, s
-} // Here, s goes out of scope, and is dropped. Its memory goes away.
-// Danger!
+// fn dangling_reference() -> &String {  // error will mention lifetime parameters.  // dangle returns a reference to a String
+//     let s = String::from("hello"); // s is a new String
+//     &s // we return a reference to the String, s
+// } // Here, s goes out of scope, and is dropped. Its memory goes away.
+// // Danger!
 
-fn no_dangling_reference() -> &String {
+fn no_dangling_reference() -> String {
     let s = String::from("hello");
     s
 }
