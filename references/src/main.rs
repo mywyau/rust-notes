@@ -8,6 +8,9 @@ fn main() {
 
     // let reference_to_nothing = dangling_reference();   // reference is dropped, but compiler catches this
     let reference_to_nothing = no_dangling_reference();   // compiles since we do no have a dangling reference.
+
+    let dummy_string = &String::from("string");
+    println!("length of string is {}", first_word(dummy_string));
 }
 
 // to avoid the whole tupling and return value function situation in the ownership package regarding variables is to use a 'reference'
@@ -119,8 +122,18 @@ fn no_dangling_reference() -> String {
     s
 }
 
+// fn slices() {
+//     // slices let you reference a contiguous sequence of elements in a collection rather than the whole collection.
+//     // a slice is a form of reference hence no ownership.
+// }
 
 
-
-
-
+fn first_word(s: &String) -> usize {
+    let bytes: &[u8] = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+    s.len()
+}
