@@ -4,10 +4,28 @@ fn main() {
 
     // can_modify_mutable_references();
     // mix_mutable_with_immutable_invalid();
-    mix_mutable_with_immutable_valid();
+    // mix_mutable_with_immutable_valid();
 
     // let reference_to_nothing = dangling_reference();   // reference is dropped, but compiler catches this
     let reference_to_nothing = no_dangling_reference();   // compiles since we do no have a dangling reference.
+
+    // Slices
+
+    // This program compiles without any errors and would also do so if we used word after calling s.clear().
+    // Because word isn’t connected to the state of s at all, word still contains the value 5. We could use that value 5
+    // with the variable s to try to extract the first word out, but this would be a bug because the contents of s have changed since we saved 5 in word.
+
+    // Having to worry about the index in word getting out of sync with the data in s is tedious and error prone!
+
+    let mut s = String::from("hello world");
+
+    // let word = first_word(&s); // compiles and works but not safe, will return the value 5 however the .clear method below clears the word. The string and it's length is now ouw out of sync
+
+    let word = first_word_rewrite(&s); // safer, will throw a warning
+
+    s.clear(); // error!
+
+    println!("the first word is: {}", word);
 }
 
 // to avoid the whole tupling and return value function situation in the ownership package regarding variables is to use a 'reference'
@@ -118,6 +136,108 @@ fn no_dangling_reference() -> String {
     let s = String::from("hello");
     s
 }
+
+// Slices
+
+fn slices() {
+    let s = String::from("hello");
+    let hello = &s[0..5];
+    let world = &s[6..11];
+}
+
+fn slices_syntax_sugars_head() {
+    let s = String::from("hello");
+    let slice = &s[0..2];       // these are equivalent
+    let slice = &s[..2];        // these are equivalent
+}
+
+fn slices_syntax_sugars_last() {
+    let s = String::from("hello");
+    let len = s.len();
+    let slice = &s[3..len];       // these are equivalent
+    let slice = &s[3..];        // these are equivalent
+}
+
+fn slices_syntax_sugars_entire() {
+    let s = String::from("hello");
+    let len = s.len();
+    let slice = &s[0..len];       // these are equivalent
+    let slice = &s[..];        // these are equivalent
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
+}
+
+// why use Slices, to build more robust programs. It's to ensure the references of Strings going into functions remain valid.
+
+// We now have a straightforward API that’s much harder to mess up because the compiler will ensure the references
+// into the String remain valid. Remember the bug in the program in Listing 4-8, when we got the index to the end
+// of the first word but then cleared the string so our index was invalid? That code was logically incorrect but
+// didn’t show any immediate errors. The problems would show up later if we kept trying to use the first word index with an emptied string.
+// Slices make this bug impossible and let us know we have a problem with our code much sooner. Using the slice version of first_word will throw a compile-time error:
+
+
+fn first_word_rewrite(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
+
+
+// String Literals as Slices
+
+fn string_literals_slices() {
+    let s = "Hello World!";
+
+    // fn first_word(s: &String) -> &str {}  // possible signature but there is a better one.
+
+    // A more experienced Rustacean would write the signature shown instead because it allows us to use the same function on both &String values and &str values.
+
+    // If we have a string slice, we can pass that directly. If we have a String, we can pass a slice of the String or a reference to the String.
+    // This flexibility takes advantage of deref coercions
+
+    // fn first_word(s: &str) -> &str {};
+}
+
+fn program_string_literal_showcase() {
+    let my_string = String::from("Hello world!");
+    let word = first_word_rewrite(&my_string[0..6]);
+    let word = first_word_rewrite(&my_string[..]);
+
+    let word = first_word_rewrite(&my_string);
+
+    let my_string_literal = "hello world";
+    let word = first_word_rewrite(&my_string[0..6]);
+
+    // Because string literals are string slices already,
+    // this works too, without the slice syntax!
+    let word = first_word_rewrite(my_string_literal);
+}
+
+fn other_slices() {
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+
+    let slice: &[i32] = &a[1..3];
+    assert_eq!(slice, &[2, 3]);
+}
+
+
+
+
+
 
 
 
