@@ -21,11 +21,11 @@ fn main() {
 
     // let word = first_word(&s); // compiles and works but not safe, will return the value 5 however the .clear method below clears the word. The string and it's length is now ouw out of sync
 
-    let word = first_word_rewrite(&s); // safer, will throw a warning
-
-    s.clear(); // error!
-
-    println!("the first word is: {}", word);
+    // let word = first_word_rewrite(&s); // safer, will throw a warning
+    //
+    // s.clear(); // error!
+    //
+    // println!("the first word is: {}", word);
 }
 
 // to avoid the whole tupling and return value function situation in the ownership package regarding variables is to use a 'reference'
