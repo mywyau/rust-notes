@@ -6,11 +6,13 @@
       <sourceFolder url="file://$MODULE_DIR$/references/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/methods/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tagless-final/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/options/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/primitive_types/target" />
       <excludeFolder url="file://$MODULE_DIR$/quicksort/target" />
       <excludeFolder url="file://$MODULE_DIR$/references/target" />
       <excludeFolder url="file://$MODULE_DIR$/methods/target" />
       <excludeFolder url="file://$MODULE_DIR$/tagless-final/target" />
+      <excludeFolder url="file://$MODULE_DIR$/options/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
