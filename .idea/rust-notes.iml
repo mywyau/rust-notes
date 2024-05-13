@@ -8,6 +8,9 @@
       <sourceFolder url="file://$MODULE_DIR$/tagless-final/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/options/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/if_let/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/functions/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/garden/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/public_struct_enums/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/primitive_types/target" />
       <excludeFolder url="file://$MODULE_DIR$/quicksort/target" />
       <excludeFolder url="file://$MODULE_DIR$/references/target" />
@@ -15,6 +18,9 @@
       <excludeFolder url="file://$MODULE_DIR$/tagless-final/target" />
       <excludeFolder url="file://$MODULE_DIR$/options/target" />
       <excludeFolder url="file://$MODULE_DIR$/if_let/target" />
+      <excludeFolder url="file://$MODULE_DIR$/functions/target" />
+      <excludeFolder url="file://$MODULE_DIR$/garden/target" />
+      <excludeFolder url="file://$MODULE_DIR$/public_struct_enums/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
