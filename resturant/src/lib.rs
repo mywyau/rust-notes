@@ -1,3 +1,5 @@
+use crate::front_of_house::hosting;
+
 mod front_of_house {
     // rust modules are private by default hiding implementation details. This mean we know what we are allowed to change without breaking outer code.
     pub mod hosting {    // adding pub to mods only allows us to reference the mod but not it's contents. we need to go deeper and make it's content pub to access it
@@ -16,7 +18,10 @@ mod front_of_house {
     }
 }
 
-pub fn eat_at_resturant() {
+pub fn eat_at_restaurant() {
+
+    // using the use keyword
+    hosting::add_to_waitlist();   // easier syntax, still checks privacy
 
     // Absolute path
     crate::front_of_house::hosting::add_to_waitlist();
@@ -36,6 +41,17 @@ mod back_of_house {
     }
 
     fn cook_order() {}
+}
+
+mod customer {
+
+    use crate::front_of_house::hosting; // required or if commented out the super works too  (1)
+
+    pub fn eat_at_restaurant() {
+        // hosting::add_to_waitlist();  // this does not work it either requires a use within the mod or using super
+        hosting::add_to_waitlist();
+        // super::hosting::add_to_waitlist();    need to comment out (1), then uncomment to see it able to pull the correct path from the parent of mod customer at top of file.
+    }
 }
 
 
