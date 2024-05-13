@@ -7,7 +7,7 @@ fn main() {
     // mix_mutable_with_immutable_valid();
 
     // let reference_to_nothing = dangling_reference();   // reference is dropped, but compiler catches this
-    let reference_to_nothing = no_dangling_reference();   // compiles since we do no have a dangling reference.
+    let reference_to_nothing = no_dangling_reference();   // compiles since we do not have a dangling reference.
 
     // Slices
 

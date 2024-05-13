@@ -7,7 +7,7 @@ fn main() {
     another_function_parameters(5);
     print_labeled_measurement(10, "h");
 
-    statement();
+    statement;
     expression();
 
     let x = five();
