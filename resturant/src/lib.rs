@@ -49,7 +49,10 @@ mod customer {
 
     pub fn eat_at_restaurant() {
         // hosting::add_to_waitlist();  // this does not work it either requires a use within the mod or using super
-        hosting::add_to_waitlist();
+        hosting::add_to_waitlist();    // add_to_waitlist() comes from hosting, kinda like when you have two methods the same but from diff libraries in Scala.
+        // Helps identify the difference. between similarly named functions.
+        // we use a slightly longer path to specify add_to_waitlist() is somewhere else and where it is located. It is a balance between convenience/readability and clarity on locality of code.
+
         // super::hosting::add_to_waitlist();    need to comment out (1), then uncomment to see it able to pull the correct path from the parent of mod customer at top of file.
     }
 }
