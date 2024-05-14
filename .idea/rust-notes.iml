@@ -11,7 +11,10 @@
       <sourceFolder url="file://$MODULE_DIR$/functions/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/garden/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/public_struct_enums/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resturant/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/use-example/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hello_world/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resturant_pub_use/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/primitive_types/target" />
       <excludeFolder url="file://$MODULE_DIR$/quicksort/target" />
       <excludeFolder url="file://$MODULE_DIR$/references/target" />
@@ -22,7 +25,10 @@
       <excludeFolder url="file://$MODULE_DIR$/functions/target" />
       <excludeFolder url="file://$MODULE_DIR$/garden/target" />
       <excludeFolder url="file://$MODULE_DIR$/public_struct_enums/target" />
+      <excludeFolder url="file://$MODULE_DIR$/resturant/target" />
       <excludeFolder url="file://$MODULE_DIR$/use-example/target" />
+      <excludeFolder url="file://$MODULE_DIR$/hello_world/target" />
+      <excludeFolder url="file://$MODULE_DIR$/resturant_pub_use/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
