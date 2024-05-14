@@ -1,7 +1,11 @@
 // import input and out put library
 pub mod guessing_game {
-    use std::cmp::Ordering;
-    use std::io;
+
+    use std::{cmp::Ordering, io};  // using nested lists for imports
+    // use std::cmp::Ordering;
+    // use std::io;
+
+    use std::collections::*;  // this is the glob operator when it comes to imports ::*, like scala pulls in everything from the mod/library
 
     use rand::Rng;
 
