@@ -15,6 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/use-example/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/hello_world/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resturant_pub_use/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/collections/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/primitive_types/target" />
       <excludeFolder url="file://$MODULE_DIR$/quicksort/target" />
       <excludeFolder url="file://$MODULE_DIR$/references/target" />
