@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/use-example/target" />
       <excludeFolder url="file://$MODULE_DIR$/hello_world/target" />
       <excludeFolder url="file://$MODULE_DIR$/resturant_pub_use/target" />
+      <excludeFolder url="file://$MODULE_DIR$/collections/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

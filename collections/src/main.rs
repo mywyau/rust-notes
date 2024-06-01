@@ -1,10 +1,11 @@
 mod instantiate_vectors;
 mod reading_vectors;
 mod iterating_over_vectors;
+mod hashmap_notes;
 mod enums;
 
 fn main() {
-    println!("Hello, world!\n");
+
     // instantiate_vectors::notes();
     // reading_vectors::notes();
     // reading_vectors::notes_2();
@@ -12,5 +13,10 @@ fn main() {
     //  iterating_over_vectors::notes();
     //  iterating_over_vectors::notes_2();
 
-     enums::notes();
+    // enums::notes();
+
+    // hashmap_notes::notes_2();
+    // hashmap_notes::ownership()
+
+    hashmap_notes::update_hashmap()
 }
